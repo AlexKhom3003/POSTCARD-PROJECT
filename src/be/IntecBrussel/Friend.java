@@ -1,7 +1,5 @@
 package be.IntecBrussel;
 
-import java.util.Objects;
-
 public class Friend {
     private String name;
     private boolean family;
@@ -19,53 +17,34 @@ public class Friend {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public boolean isFamily() {
         return family;
-    }
-
-    public void setFamily(boolean family) {
-        this.family = family;
     }
 
     public int getYearsKnown() {
         return yearsKnown;
     }
 
-    public void setYearsKnown(int yearsKnown) {
-        this.yearsKnown = yearsKnown;
-    }
-
     public int getFriendShipLevel() {
         return friendShipLevel;
     }
 
-    public void setFriendShipLevel(int friendShipLevel) {
-        this.friendShipLevel = friendShipLevel;
-    }
-
-    @Override
     public String toString() {
-        return "Friend{" +
-                "name='" + name + '\'' +
-                ", family=" + family +
-                ", yearsKnown=" + yearsKnown +
-                ", friendShipLevel=" + friendShipLevel +
-                '}';
+        return "Friend{" + "name='" + name + '\'' + ", family=" + family +
+                ", yearsKnown=" + yearsKnown + ", friendShipLevel=" + friendShipLevel + '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Friend friend = (Friend) o;
-        return family == friend.family && yearsKnown == friend.yearsKnown && friendShipLevel == friend.friendShipLevel && Objects.equals(name, friend.name);
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Friend)) return false;
+        Friend other = (Friend) obj;
+        return family == other.family &&
+                yearsKnown == other.yearsKnown &&
+                friendShipLevel == other.friendShipLevel &&
+                name.equals(other.name);
     }
 
-    @Override
     public int hashCode() {
-        return Objects.hash(name, family, yearsKnown, friendShipLevel);
+        return name.hashCode() + yearsKnown + friendShipLevel + (family ? 1 : 0);
     }
 }

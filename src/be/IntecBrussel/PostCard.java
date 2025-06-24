@@ -1,8 +1,5 @@
 package be.IntecBrussel;
 
-import java.util.Objects;
-import java.util.SplittableRandom;
-
 public class PostCard {
     private String country;
     private String continent;
@@ -28,23 +25,18 @@ public class PostCard {
         this.continent = continent;
     }
 
-    @Override
     public String toString() {
-        return "PostCard{" +
-                "country='" + country + '\'' +
-                ", continent='" + continent + '\'' +
-                '}';
+        return "PostCard{" + "country='" + country + '\'' + ", continent='" + continent + '\'' + '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        PostCard postCard = (PostCard) o;
-        return Objects.equals(country, postCard.country) && Objects.equals(continent, postCard.continent);
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof PostCard)) return false;
+        PostCard other = (PostCard) obj;
+        return country.equals(other.country) && continent.equals(other.continent);
     }
 
-    @Override
     public int hashCode() {
-        return Objects.hash(country, continent);
+        return country.hashCode() + continent.hashCode();
     }
 }
