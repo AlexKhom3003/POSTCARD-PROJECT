@@ -1,5 +1,11 @@
 package be.IntecBrussel;
 
+<<<<<<< HEAD
+=======
+import java.util.Objects;
+import java.util.SplittableRandom;
+
+>>>>>>> 0fa6496005218f3be290b2be31ef309dd86165a5
 public class PostCard {
     private String country;
     private String continent;
@@ -25,6 +31,7 @@ public class PostCard {
         this.continent = continent;
     }
 
+<<<<<<< HEAD
     public String toString() {
         return "PostCard{" + "country='" + country + '\'' + ", continent='" + continent + '\'' + '}';
     }
@@ -38,5 +45,25 @@ public class PostCard {
 
     public int hashCode() {
         return country.hashCode() + continent.hashCode();
+=======
+    @Override
+    public String toString() {
+        return "PostCard{" +
+                "country='" + country + '\'' +
+                ", continent='" + continent + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        PostCard postCard = (PostCard) o;
+        return Objects.equals(country, postCard.country) && Objects.equals(continent, postCard.continent);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(country, continent);
+>>>>>>> 0fa6496005218f3be290b2be31ef309dd86165a5
     }
 }
