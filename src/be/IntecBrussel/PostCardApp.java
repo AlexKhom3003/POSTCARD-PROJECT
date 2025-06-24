@@ -74,7 +74,7 @@ public class PostCardApp {
         }
     }
 
-    // opdracht 2: sort by country
+    // opdracht 2:
     public static void sortCardsByCountry(List<PostCard> cards) {
         Collections.sort(cards, new Comparator<PostCard>() {
             public int compare(PostCard p1, PostCard p2) {
@@ -87,32 +87,30 @@ public class PostCardApp {
         }
     }
 
-    // opdracht 3: remove duplicates
+    // opdracht 3
     public static List<PostCard> extractDuplicates(List<PostCard> list) {
         List<PostCard> duplicates = new ArrayList<>();
-        Set<PostCard> checked = new HashSet<>();
+        Set<PostCard> alreadySeen = new HashSet<>();
+        List<PostCard> finalList = new ArrayList<>();
 
         for (PostCard card : list) {
-            int freq = Collections.frequency(list, card);
-            if (freq > 1 && !checked.contains(card)) {
-                checked.add(card);
-                for (int i = 1; i < freq; i++) {
+            int count = Collections.frequency(list, card);
+            if (count > 1 && !alreadySeen.contains(card)) {
+                alreadySeen.add(card);
+                for (int i = 1; i < count; i++) {
                     duplicates.add(card);
                 }
+                finalList.add(card); // keep only one
+            } else if (count == 1) {
+                finalList.add(card);
             }
         }
 
-        Iterator<PostCard> it = list.iterator();
-        while (it.hasNext()) {
-            PostCard c = it.next();
-            if (Collections.frequency(list, c) > 1) {
-                it.remove();
-            }
-        }
-
-        list.addAll(checked);
+        list.clear();
+        list.addAll(finalList);
         return duplicates;
     }
+
 
     // opdracht 4: priority queue by family, friendship, years known
     public static void giveCardsToFriends(List<Friend> friends) {

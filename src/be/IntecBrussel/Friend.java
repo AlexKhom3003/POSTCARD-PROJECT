@@ -34,13 +34,13 @@ public class Friend {
     }
 
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Friend)) return false;
+        if (this == obj)
+            return true;
+        if (!(obj instanceof Friend))
+            return false;
         Friend other = (Friend) obj;
-        return name.equals(other.name) &&
-                family == other.family &&
-                yearsKnown == other.yearsKnown &&
-                friendShipLevel == other.friendShipLevel;
+        return name.equals(other.name) && family == other.family &&
+                yearsKnown == other.yearsKnown && friendShipLevel == other.friendShipLevel;
     }
 
     public int hashCode() {
