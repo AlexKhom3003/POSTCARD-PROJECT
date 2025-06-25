@@ -57,7 +57,7 @@ public class PostCardApp {
         giveCardsToFriends(friends);
     }
 
-    // opdracht 1: swap duplicates
+    // opdracht 1:
     public static void swapDuplicateCard(List<PostCard> yourList, List<PostCard> friendList) {
         for (PostCard yourCard : yourList) {
             int count = Collections.frequency(yourList, yourCard);
@@ -100,7 +100,7 @@ public class PostCardApp {
                 for (int i = 1; i < count; i++) {
                     duplicates.add(card);
                 }
-                finalList.add(card); // keep only one
+                finalList.add(card);
             } else if (count == 1) {
                 finalList.add(card);
             }
@@ -112,7 +112,7 @@ public class PostCardApp {
     }
 
 
-    // opdracht 4: priority queue by family, friendship, years known
+    // opdracht 4:
     public static void giveCardsToFriends(List<Friend> friends) {
         PriorityQueue<Friend> queue = new PriorityQueue<>(new Comparator<Friend>() {
             public int compare(Friend f1, Friend f2) {
