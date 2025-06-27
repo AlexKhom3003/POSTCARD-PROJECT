@@ -1,4 +1,4 @@
-package be.IntecBrussel;
+package be.intecbrussel;
 
 public class Friend {
     private String name;

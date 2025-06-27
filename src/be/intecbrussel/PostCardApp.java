@@ -1,4 +1,4 @@
-package be.IntecBrussel;
+package be.intecbrussel;
 
 import java.util.*;
 
